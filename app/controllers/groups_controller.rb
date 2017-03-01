@@ -21,9 +21,9 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user = current_user
     if @group.save
-      current_user.join!(@group)
-      redirect_to groups_path
 
+      redirect_to groups_path
+      current_user.join!(@group)
     else
       render :new
     end
