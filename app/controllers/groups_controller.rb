@@ -15,11 +15,16 @@ def edit
 
 
  def create
-   @group = Group.new(group_params)
-    @group.save
+    @group = Group.new(group_params)
 
+    if @group.save
       redirect_to groups_path
+    else
+      render :new
+    end
   end
+
+  
   def update
     @group = Group.find(params[:id])
 
